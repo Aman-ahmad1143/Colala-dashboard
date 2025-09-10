@@ -107,7 +107,8 @@ const images = {
   comment1: "/assets/layout/comment1.svg",
   share1: "/assets/layout/share1.svg",
   balance1: "/assets/layout/balance.svg",
-
+  chatcircle: "/assets/layout/chatcircle.svg",
+  Support: "/assets/layout/support.svg",
 };
 
 export default images;
