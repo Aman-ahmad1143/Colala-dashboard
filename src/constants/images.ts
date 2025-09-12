@@ -116,6 +116,7 @@ const images = {
   Star: "/assets/layout/Star.svg",
   Cover: "/assets/layout/cover.svg",
   Trash: "/assets/layout/trash.svg",
+  Login: "/assets/layout/Login.svg",
 };
 
 export default images;
