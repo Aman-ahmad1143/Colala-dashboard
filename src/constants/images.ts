@@ -17,6 +17,7 @@ const images = {
   analytics: "/assets/sidebar/analytics.svg",
   leaderboard: "/assets/sidebar/leaderboard.svg",
   support: "/assets/sidebar/support.svg",
+  disputes: "/assets/sidebar/WarningCircle.svg",
   ratingsreviews: "/assets/sidebar/ratings-reviews.svg",
   referralmgt: "/assets/sidebar/referral-mgt.svg",
   notifications: "/assets/sidebar/notifications.svg",
@@ -109,6 +110,8 @@ const images = {
   balance1: "/assets/layout/balance.svg",
   chatcircle: "/assets/layout/chatcircle.svg",
   Support: "/assets/layout/support.svg",
+  Warning: "/assets/layout/Warning.svg",
+  
   Referral: "/assets/layout/referral.svg",
   Star: "/assets/layout/Star.svg",
   Cover: "/assets/layout/cover.svg",

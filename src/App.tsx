@@ -25,6 +25,7 @@ import RatingsReviews from "./pages/general/ratingsReviews/ratingsReviews";
 import ReferralMgt from "./pages/general/referralMgt/referralMgt";
 import Notifications from "./pages/general/notifications/notifications";
 import Settings from "./pages/general/settings/Settings";
+import Disputes from "./pages/general/disputes/Disputes"; 
 
 function App() {
   const routes = [
@@ -53,6 +54,7 @@ function App() {
     { path: "/referral-mgt", element: <ReferralMgt /> },
     { path: "/notifications", element: <Notifications /> },
     { path: "/settings", element: <Settings /> },
+    { path: "/disputes", element: <Disputes /> },
   ];
   return (
     <Router>
