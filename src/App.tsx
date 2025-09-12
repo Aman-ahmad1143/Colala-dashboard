@@ -25,7 +25,10 @@ import RatingsReviews from "./pages/general/ratingsReviews/ratingsReviews";
 import ReferralMgt from "./pages/general/referralMgt/referralMgt";
 import Notifications from "./pages/general/notifications/notifications";
 import Settings from "./pages/general/settings/Settings";
-import Disputes from "./pages/general/disputes/Disputes"; 
+import Disputes from "./pages/general/disputes/Disputes";
+import Login from "./pages/auth/Login";
+import { AuthProvider } from "./contexts/AuthContext";
+import ProtectedRoute from "./components/ProtectedRoute"; 
 
 function App() {
   const routes = [
@@ -56,17 +59,23 @@ function App() {
     { path: "/settings", element: <Settings /> },
     { path: "/disputes", element: <Disputes /> },
   ];
+
   return (
-    <Router>
-      <Routes>
-        {/* Layout Wraps All Routes */}
-        <Route path="/" element={<Layout />}>
-          {routes.map(({ path, element }) => (
-            <Route key={path} path={path} element={element} />
-          ))}
-        </Route>
-      </Routes>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <Routes>
+          {/* Login Route - Public */}
+          <Route path="/login" element={<Login />} />
+          
+          {/* Protected Routes */}
+          <Route path="/" element={<ProtectedRoute><Layout /></ProtectedRoute>}>
+            {routes.map(({ path, element }) => (
+              <Route key={path} path={path} element={element} />
+            ))}
+          </Route>
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 }
 
