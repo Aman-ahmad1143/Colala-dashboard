@@ -3,6 +3,7 @@ import { useState } from "react";
 import ManagementSettingTable from "./managementsettingtable";
 import AddNewAdmin from "./addnewadmin";
 import AdminDetail from "./admindetail";
+import Categories from "./categories";
 
 interface Admin {
   id: string;
@@ -187,6 +188,11 @@ const AllUsers = () => {
         <AdminDetail 
           admin={selectedAdmin} 
           onBack={handleBackToTable}
+        />
+      ) : activeTab === "Categories" ? (
+        <Categories 
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
         />
       ) : (
         <>
