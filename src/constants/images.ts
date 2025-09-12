@@ -110,6 +110,7 @@ const images = {
   balance1: "/assets/layout/balance.svg",
   chatcircle: "/assets/layout/chatcircle.svg",
   Support: "/assets/layout/support.svg",
+  Warning: "/assets/layout/Warning.svg",
   
 };
 
