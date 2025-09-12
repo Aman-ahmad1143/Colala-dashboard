@@ -1,6 +1,7 @@
 import images from "../../../constants/images";
 import PageHeader from "../../../components/PageHeader";
 import ReferralFilters from "./referralfilters";
+import ReferralTable from "./referraltable";
 
 
 const AllReferral = () => {
@@ -12,7 +13,7 @@ const AllReferral = () => {
 
   return (
     <>
-      <PageHeader title="All Referrals" />
+      <PageHeader title=" Referrals" />
       <div className="p-5">
         <div className="flex flex-row justify-between items-center">
           {/* Card 1 */}
@@ -21,7 +22,7 @@ const AllReferral = () => {
             style={{ boxShadow: "0px 0px 2px 0px rgba(0, 0, 0, 0.25)" }}
           >
             <div className="bg-[#E53E3E] rounded-l-2xl p-7 flex justify-center items-center ">
-              <img className="w-9 h-9" src={images.chatcircle} alt="" />
+              <img className="w-9 h-9" src={images.Referral} alt="" />
             </div>
             <div className="flex flex-col bg-[#FFF1F1] rounded-r-2xl p-3 pr-11 gap-1">
               <span className="font-semibold text-[15px]">Total Referrals</span>
@@ -40,7 +41,7 @@ const AllReferral = () => {
             style={{ boxShadow: "0px 0px 2px 0px rgba(0, 0, 0, 0.25)" }}
           >
             <div className="bg-[#E53E3E] rounded-l-2xl p-7 flex justify-center items-center ">
-              <img className="w-9 h-9" src={images.chatcircle} alt="" />
+              <img className="w-9 h-9" src={images.Referral} alt="" />
             </div>
             <div className="flex flex-col bg-[#FFF1F1] rounded-r-2xl p-3 pr-11 gap-1">
               <span className="font-semibold text-[15px]">Buyers referred</span>
@@ -59,7 +60,7 @@ const AllReferral = () => {
             style={{ boxShadow: "0px 0px 2px 0px rgba(0, 0, 0, 0.25)" }}
           >
             <div className="bg-[#E53E3E] rounded-l-2xl p-7 flex justify-center items-center ">
-              <img className="w-9 h-9" src={images.chatcircle} alt="" />
+              <img className="w-9 h-9" src={images.Referral} alt="" />
             </div>
             <div className="flex flex-col bg-[#FFF1F1] rounded-r-2xl p-3 pr-11 gap-1">
               <span className="font-semibold text-[15px]">Sellers referred</span>
@@ -72,6 +73,7 @@ const AllReferral = () => {
           </div>
         </div>
         <ReferralFilters onBulkActionSelect={handleBulkActionSelect} />
+        <ReferralTable onRowSelect={(selectedIds) => console.log("Selected referrals:", selectedIds)} />
        
       </div>
     </>

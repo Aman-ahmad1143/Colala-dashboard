@@ -112,6 +112,10 @@ const images = {
   Support: "/assets/layout/support.svg",
   Warning: "/assets/layout/Warning.svg",
   
+  Referral: "/assets/layout/referral.svg",
+  Star: "/assets/layout/Star.svg",
+  Cover: "/assets/layout/cover.svg",
+  Trash: "/assets/layout/trash.svg",
 };
 
 export default images;
