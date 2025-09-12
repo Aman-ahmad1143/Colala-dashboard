@@ -13,7 +13,7 @@ const AllSupport = () => {
 
   return (
     <>
-      <PageHeader title="All Support" />
+      <PageHeader title="Support" />
       <div className="p-5">
         <div className="flex flex-row justify-between items-center">
           {/* Card 1 */}

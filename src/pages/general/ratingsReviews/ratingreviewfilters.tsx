@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import SettingsModal from "./settingsmodal";
 
-interface ReferralFiltersProps {
+interface RatingAndReviewFiltersProps {
   onBulkActionSelect?: (action: string) => void;
 }
 
@@ -63,11 +62,10 @@ const BulkActionDropdown: React.FC<BulkActionDropdownProps> = ({
   );
 };
 
-const ReferralFilters: React.FC<ReferralFiltersProps> = ({ onBulkActionSelect }) => {
+const RatingAndReviewFilters: React.FC<RatingAndReviewFiltersProps> = ({ onBulkActionSelect }) => {
   const [activeTab, setActiveTab] = useState("All");
   const [selectedDate, setSelectedDate] = useState("Today");
-  const [showSettingsModal, setShowSettingsModal] = useState(false);
-  const tabs = ["All", "Buyers", "Sellers"];
+  const tabs = ["All", "Store", "Products"];
 
   const TabButtons = () => (
     <div className="flex items-center space-x-0.5 border border-[#989898] rounded-lg p-1 w-fit bg-white">
@@ -77,7 +75,7 @@ const ReferralFilters: React.FC<ReferralFiltersProps> = ({ onBulkActionSelect })
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className={`py-2 px-6 text-sm rounded-lg font-normal transition-all duration-200 cursor-pointer ${
+            className={`py-2 px-8 text-sm rounded-lg font-normal transition-all duration-200 cursor-pointer ${
               isActive ? "bg-[#E53E3E] text-white" : "text-black hover:bg-gray-50"
             }`}
           >
@@ -90,7 +88,7 @@ const ReferralFilters: React.FC<ReferralFiltersProps> = ({ onBulkActionSelect })
 
   const handleBulkActionSelect = (action: string) => {
     // Handle the bulk action selection from the parent component
-    console.log("Bulk action selected in Referral:", action);
+    console.log("Bulk action selected in Rating and Review:", action);
     // Call parent callback if provided
     if (onBulkActionSelect) {
       onBulkActionSelect(action);
@@ -126,17 +124,9 @@ const ReferralFilters: React.FC<ReferralFiltersProps> = ({ onBulkActionSelect })
         </div>
         
         {/* Bulk Action Dropdown */}
-        <div className="mr-80">
+        <div className="mr-90">
           <BulkActionDropdown onActionSelect={handleBulkActionSelect} />
         </div>
-        
-        {/* Settings Button */}
-        <button 
-          onClick={() => setShowSettingsModal(true)}
-          className="bg-[#E53E3E] text-white px-4 py-2 rounded-lg  hover:bg-[#d32f2f] transition-colors font-medium text-sm"
-        >
-          Settings
-        </button>
 
         {/* Search Input */}
         <div className="relative">
@@ -162,14 +152,8 @@ const ReferralFilters: React.FC<ReferralFiltersProps> = ({ onBulkActionSelect })
           </div>
         </div>
       </div>
-      
-      {/* Settings Modal */}
-      <SettingsModal 
-        isOpen={showSettingsModal} 
-        onClose={() => setShowSettingsModal(false)}
-      />
     </div>
   );
 };
 
-export default ReferralFilters;
+export default RatingAndReviewFilters;

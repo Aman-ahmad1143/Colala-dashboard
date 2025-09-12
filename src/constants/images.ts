@@ -109,6 +109,10 @@ const images = {
   balance1: "/assets/layout/balance.svg",
   chatcircle: "/assets/layout/chatcircle.svg",
   Support: "/assets/layout/support.svg",
+  Referral: "/assets/layout/referral.svg",
+  Star: "/assets/layout/Star.svg",
+  Cover: "/assets/layout/cover.svg",
+  Trash: "/assets/layout/trash.svg",
 };
 
 export default images;
