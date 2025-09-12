@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../contexts/AuthContext";
 import images from "../../constants/images";
 
 const Login = () => {
   const { login, loading } = useAuth();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -30,9 +32,14 @@ const Login = () => {
       return;
     }
 
+    console.log('Login attempt:', { email: formData.email, password: formData.password }); // Debug log
     const success = await login(formData.email, formData.password);
+    console.log('Login result:', success); // Debug log
     
-    if (!success) {
+    if (success) {
+      console.log('Login successful, navigating to dashboard'); // Debug log
+      navigate('/dashboard');
+    } else {
       setError("Invalid email or password. Use admin@admin.com / admin");
     }
   };

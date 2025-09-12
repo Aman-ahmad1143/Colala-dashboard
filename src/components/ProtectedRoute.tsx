@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import Login from '../pages/auth/Login';
 
 interface ProtectedRouteProps {
   children: React.ReactNode;
@@ -8,6 +8,15 @@ interface ProtectedRouteProps {
 
 const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   const { isAuthenticated, loading } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    console.log('ProtectedRoute - Auth state changed:', { isAuthenticated, loading }); // Debug log
+    if (!loading && !isAuthenticated) {
+      console.log('ProtectedRoute - Redirecting to login'); // Debug log
+      navigate('/login');
+    }
+  }, [isAuthenticated, loading, navigate]);
 
   if (loading) {
     return (
@@ -21,7 +30,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ children }) => {
   }
 
   if (!isAuthenticated) {
-    return <Login />;
+    return null; // Return null while navigation happens
   }
 
   return <>{children}</>;

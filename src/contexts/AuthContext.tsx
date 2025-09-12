@@ -63,6 +63,15 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     // Simulate API call delay
     await new Promise(resolve => setTimeout(resolve, 1000));
     
+    console.log('AuthContext login check:', { 
+      inputEmail: email, 
+      inputPassword: password,
+      expectedEmail: 'admin@admin.com',
+      expectedPassword: 'admin',
+      emailMatch: email === 'admin@admin.com',
+      passwordMatch: password === 'admin'
+    }); // Debug log
+    
     // Check credentials
     if (email === 'admin@admin.com' && password === 'admin') {
       const userData: User = {
@@ -86,10 +95,12 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   const logout = () => {
+    console.log('Logout function called'); // Debug log
     localStorage.removeItem('authToken');
     localStorage.removeItem('userData');
     setUser(null);
     setIsAuthenticated(false);
+    console.log('Logout completed - isAuthenticated:', false); // Debug log
   };
 
   const value: AuthContextType = {

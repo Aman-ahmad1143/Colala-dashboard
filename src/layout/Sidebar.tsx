@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import LinkComp from "./components/Link";
 import { Sidebar_links } from "../constants/siderbar";
 import { Buyers_links } from "../constants/Buyers";
 import { Sellers_links } from "../constants/Sellers";
 import { General_links } from "../constants/general";
 import images from "../constants/images";
+import { useAuth } from "../contexts/AuthContext";
 
 interface SidebarProps {
   setMobileOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -13,12 +14,21 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ setMobileOpen }) => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { logout } = useAuth();
   const [activeLink, setActiveLink] = useState<string>("/dashboard");
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {
     setActiveLink(location.pathname);
   }, [location.pathname]);
+
+  const handleLogout = () => {
+    console.log('Sidebar logout button clicked'); // Debug log
+    logout();
+    console.log('Navigating to /login from sidebar'); // Debug log
+    navigate('/login');
+  };
 
   return (
     <div
@@ -139,7 +149,10 @@ const Sidebar: React.FC<SidebarProps> = ({ setMobileOpen }) => {
 
       {/* Logout Button */}
       <div className=" mx-4 mt-2 flex items-center justify-center">
-        <button className="flex items-center p-2 cursor-pointer gap-2 text-[#FF0000] text-[20px] rounded-lg w-full ">
+        <button 
+          onClick={handleLogout}
+          className="flex items-center p-2 cursor-pointer gap-2 text-[#FF0000] text-[20px] rounded-lg w-full hover:bg-red-50 hover:bg-opacity-10 transition-colors"
+        >
           <img src={images.logout} alt="logout" className="w-6 h-6" />
           {!menuOpen && <span>Logout</span>}
         </button>

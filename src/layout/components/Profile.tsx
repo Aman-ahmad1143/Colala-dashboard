@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import images from '../../constants/images';
 import { useAuth } from '../../contexts/AuthContext';
 
@@ -10,6 +11,7 @@ interface ProfileProps {
 const Profile: React.FC<ProfileProps> = ({ name = 'Admin'}) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const { logout } = useAuth();
+  const navigate = useNavigate();
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   // Close dropdown when clicking outside
@@ -27,8 +29,11 @@ const Profile: React.FC<ProfileProps> = ({ name = 'Admin'}) => {
   }, []);
 
   const handleLogout = () => {
+    console.log('Profile logout button clicked'); // Debug log
     logout();
     setShowDropdown(false);
+    console.log('Navigating to /login'); // Debug log
+    navigate('/login');
   };
 
   return (
