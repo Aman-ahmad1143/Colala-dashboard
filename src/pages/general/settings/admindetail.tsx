@@ -161,7 +161,7 @@ const AdminDetail: React.FC<AdminDetailProps> = ({ admin, onBack }) => {
             </div>
             
             {/* Action Buttons */}
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-[0.1] mt-48">
               <button className="p-2  bg-opacity-20 rounded-lg hover:bg-opacity-30 transition-colors">
                 <img src={images.edit} alt="Edit" className="w-8 h-8" />
               </button>
@@ -179,15 +179,11 @@ const AdminDetail: React.FC<AdminDetailProps> = ({ admin, onBack }) => {
                 {isActionsDropdownOpen && (
                   <div className="absolute top-full right-0 mt-2 w-40 bg-white text-gray-900 border border-gray-200 rounded-lg shadow-lg z-10">
                     <button className="w-full px-4 py-2 text-left text-sm hover:bg-gray-50 transition-colors flex items-center gap-2 first:rounded-t-lg">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18.364 18.364A9 9 0 005.636 5.636m12.728 12.728L5.636 5.636m12.728 12.728L18.364 5.636M5.636 18.364l12.728-12.728" />
-                      </svg>
+                      <img src="/public/assets/layout/block.svg" alt="Block" className="w-4 h-4" />
                       Block User
                     </button>
                     <button className="w-full px-4 py-2 text-left text-sm hover:bg-gray-50 transition-colors flex items-center gap-2 last:rounded-b-lg">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-                      </svg>
+                     <img src="/public/assets/layout/trash.svg" alt="Delete" className="w-4 h-4" />
                       Delete Admin
                     </button>
                   </div>
